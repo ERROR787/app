@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Love Story</title>
+  <link rel="stylesheet" href="tyles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div id="app">
+    <!-- Home Screen -->
+    <section id="home" class="screen">
+      <h1>Welcome to Our Love Story</h1>
+      <button id="start-button">Start Our Journey</button>
+      <div class="hearts-animation"></div>
+    </section>
+
+    <!-- How We Met -->
+    <section id="how-we-met" class="screen hidden">
+      <h2>How We Met</h2>
+      <p>Here's the story of how we first met...</p>
+      <img src="met.jpg" alt="How we met">
+      <button class="back-button">Back</button>
+    </section>
+
+    <!-- Memories -->
+    <section id="memories" class="screen hidden">
+      <h2>Our Favorite Memories</h2>
+      <div class="gallery">
+        <img src="memory1.jpg" alt="Memory 1">
+        <img src="memory2.jpg" alt="Memory 2">
+        <img src="memory3.jpg" alt="Memory 3">
+      </div>
+      <button class="back-button">Back</button>
+    </section>
+
+    <!-- Why I Love You -->
+    <section id="why-i-love-you" class="screen hidden">
+      <h2>Why I Love You</h2>
+      <p id="love-message"></p>
+      <button class="back-button">Back</button>
+    </section>
+
+    <!-- Surprise -->
+    <section id="surprise" class="screen hidden">
+      <h2>A Special Surprise</h2>
+      <p>Click the button to reveal your surprise!</p>
+      <button id="surprise-button">Reveal Surprise</button>
+      <div id="surprise-content" class="hidden">
+        <p>You mean the world to me! Here's a song for you:</p>
+        <audio controls>
+          <source src="song.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <button class="back-button">Back</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(err => console.log('Service Worker Registration Failed: ', err));
+    }
+  </script>
+</body>
+</html>
