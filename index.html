@@ -51,24 +51,38 @@
       </div>
     </section>
 
-    <!-- Surprise -->
-    <section id="surprise" class="screen hidden">
-      <h2>A Special Surprise</h2>
-      <p>Click the button to reveal your surprise!</p>
-      <button id="surprise-button">Reveal Surprise</button>
-      <div id="surprise-content" class="hidden">
-        <p>You mean the world to me! Here's a song for you:</p>
-        <audio controls>
-          <source src="song.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="navigation">
-        <button class="back-button">Back</button>
-        <button class="next-button">home</button>
-      </div>
-    </section>
+   <!-- Surprise Section -->
+<section id="surprise" class="screen hidden">
+  <h2>A Special Surprise</h2>
+  <p>Here's a playlist of songs that remind me of you:</p>
+  <div id="playlist">
+    <div class="song">
+      <p>Song 1: Our Song</p>
+      <audio controls>
+        <source src="song1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="song">
+      <p>Song 2: Your Favorite Song</p>
+      <audio controls>
+        <source src="song2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="song">
+      <p>Song 3: A Romantic Melody</p>
+      <audio controls>
+        <source src="song3.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   </div>
+  <div class="navigation">
+    <button class="back-button">Back</button>
+    <button class="next-button">Next</button>
+  </div>
+</section>
 
   <script src="script.js"></script>
   <script>
