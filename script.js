@@ -113,3 +113,14 @@ surpriseButton.addEventListener('click', () => {
   surpriseContent.classList.remove('hidden');
   surpriseButton.style.display = 'none';
 });
+
+// Auto-Play Next Song
+const audioElements = document.querySelectorAll('audio');
+
+audioElements.forEach((audio, index) => {
+  audio.addEventListener('ended', () => {
+    if (index < audioElements.length - 1) {
+      audioElements[index + 1].play();
+    }
+  });
+});
