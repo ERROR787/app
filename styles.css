@@ -8,24 +8,26 @@ body {
     line-height: 1.6;
   }
   
-  #app {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .hidden {
-    display: none;
-  }
+   /* Main App Styles */
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+#app.visible {
+  display: block; /* Show the main app */
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
   
   /* Buttons */
   button {
@@ -99,27 +101,85 @@ body {
 .back-button:hover, .next-button:hover {
   background: #ff4a3d;
 }
-
-/* Playlist Styles */
-#playlist {
-  margin-top: 20px;
-}
-
-.song {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.song p {
-  margin: 0 0 10px 0;
-  font-size: 1.1rem;
+/* Login Page Styles */
+#login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   color: #333;
+  transition: opacity 0.5s ease;
+}
+#login.hidden {
+  opacity: 0;
+  pointer-events: none; /* Disable interactions */
 }
 
-audio {
+/* Main App Fade-In */
+#app {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#app.visible {
+  opacity: 1;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
   max-width: 300px;
 }
+
+#login-form label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#login-form input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#login-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#login-form button:hover {
+  background: #ff4a3d;
+}
+ 
+/* log in error message */
+#error-message {
+  color: #ff4a3d;
+  font-weight: bold;
+  margin-top: 10px;
+  display: none; /* Hidden by default */
+}
+
+#error-message.hidden {
+  display: none;
+}
+
+#error-message.visible {
+  display: block;
+}
+
+/* Hide the login page */
+.hidden {
+  display: none;
+}
+
