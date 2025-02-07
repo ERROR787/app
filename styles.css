@@ -1,22 +1,19 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    color: #333;
-    line-height: 1.6;
-  }
-  
-   /* Main App Styles */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #333;
+  line-height: 1.6;
+}
+
 #app {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  display: none; /* Hidden by default */
 }
-
 
 .screen {
   display: flex;
@@ -25,158 +22,104 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-  
-  /* Buttons */
-  button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background: #ff6f61;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
-  }
-  
-  /* Hearts Animation */
-  .hearts-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-  
-  .hearts-animation::before {
-    content: '❤️';
-    position: absolute;
-    top: -10%;
-    left: 10%;
-    animation: fall 5s linear infinite;
-  }
-  
-  @keyframes fall {
-    to {
-      transform: translateY(100vh);
-    }
-  }
-  
-  /* Gallery */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .gallery img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
 
-  /* Navigation Buttons */
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 300px;
-  margin: 20px auto;
-}
-
-.back-button, .next-button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background: #ff6f61;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.back-button:hover, .next-button:hover {
-  background: #ff4a3d;
-}
-/* Login Page Styles */
-#login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  color: #333;
-  transition: opacity 0.5s ease;
-}
-#login.hidden {
-  opacity: 0;
-  pointer-events: none; /* Disable interactions */
-}
-
-/* Main App Fade-In */
-#app {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-#app.visible {
-  opacity: 1;
-}
-
-#login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 300px;
-}
-
-#login-form label {
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-#login-form input {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#login-form button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background: #ff6f61;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-#login-form button:hover {
-  background: #ff4a3d;
-}
- 
-/* log in error message */
-#error-message {
-  color: #ff4a3d;
-  font-weight: bold;
-  margin-top: 10px;
-  display: none; /* Hidden by default */
-}
-
-#error-message.hidden {
-  display: none;
-}
-
-#error-message.visible {
-  display: block;
-}
-
-/* Hide the login page */
 .hidden {
   display: none;
 }
 
+/* Buttons */
+button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Hearts Animation */
+.hearts-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hearts-animation::before {
+  content: '❤️';
+  position: absolute;
+  top: -10%;
+  left: 10%;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Buttons */
+.navigation {
+display: flex;
+justify-content: space-between;
+width: 100%;
+max-width: 300px;
+margin: 20px auto;
+}
+
+.back-button, .next-button {
+padding: 10px 20px;
+font-size: 1rem;
+background: #ff6f61;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.back-button:hover, .next-button:hover {
+background: #ff4a3d;
+}
+
+/* Playlist Styles */
+#playlist {
+margin-top: 20px;
+}
+
+.song {
+background: rgba(255, 255, 255, 0.8);
+padding: 10px;
+border-radius: 10px;
+margin-bottom: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.song p {
+margin: 0 0 10px 0;
+font-size: 1.1rem;
+color: #333;
+}
+
+audio {
+width: 100%;
+max-width: 300px;
+}
