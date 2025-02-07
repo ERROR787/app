@@ -17,9 +17,6 @@ body {
   display: none; /* Hidden by default */
 }
 
-#app.visible {
-  display: block; /* Show the main app */
-}
 
 .screen {
   display: flex;
