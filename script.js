@@ -1,126 +1,60 @@
-// Navigation Logic
-const screens = document.querySelectorAll('.screen');
-const startButton = document.getElementById('start-button');
-const backButtons = document.querySelectorAll('.back-button');
-const nextButtons = document.querySelectorAll('.next-button');
+ // Login Form Submission with Validation
+const loginForm = document.getElementById('login-form');
+const loginSection = document.getElementById('login');
+const appSection = document.getElementById('app');
+const displayName = document.getElementById('display-name');
+const errorMessage = document.getElementById('error-message');
 
-// Show the first screen (Home)
-document.getElementById('home').classList.remove('hidden');
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent default form submission
 
-// Start Button
-startButton.addEventListener('click', () => {
-  showScreen('how-we-met');
-});
+  // Get form values
+  const name = document.getElementById('name').value.trim();
+  const likes = document.getElementById('likes').value.trim();
+  const sports = document.getElementById('sports').value.trim();
+  const favoritePerson = document.getElementById('favorite-person').value.trim().toLowerCase();
 
-// Back Buttons
-backButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const currentScreen = button.closest('.screen');
-    const currentId = currentScreen.id;
-    let previousScreenId;
+  // Define correct answers
+  const correctFavoritePerson = 'v'; // Replace with your name
+  const correctSports = ['f', 'v']; // Replace with her favorite sports
 
-    switch (currentId) {
-      case 'how-we-met':
-        previousScreenId = 'home';
-        break;
-      case 'memories':
-        previousScreenId = 'how-we-met';
-        break;
-      case 'why-i-love-you':
-        previousScreenId = 'memories';
-        break;
-      case 'surprise':
-        previousScreenId = 'why-i-love-you';
-        break;
-      default:
-        previousScreenId = 'home';
-    }
+  // Validate answers
+  let isValid = true;
 
-    showScreen(previousScreenId);
-  });
-});
-
-// Next Buttons
-nextButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const currentScreen = button.closest('.screen');
-    const currentId = currentScreen.id;
-    let nextScreenId;
-
-    switch (currentId) {
-      case 'how-we-met':
-        nextScreenId = 'memories';
-        break;
-      case 'memories':
-        nextScreenId = 'why-i-love-you';
-        break;
-      case 'why-i-love-you':
-        nextScreenId = 'surprise';
-        break;
-      default:
-        nextScreenId = 'home';
-    }
-
-    showScreen(nextScreenId);
-  });
-});
-
-// Helper Function to Show Screens
-function showScreen(screenId) {
-  screens.forEach(screen => screen.classList.add('hidden'));
-  document.getElementById(screenId).classList.remove('hidden');
-}
-
-// Typewriter Effect for "Why I Love You"
-const loveMessage = document.getElementById('love-message');
-const messages = [
-  "There are a million reasons why I love you, but if I had to put it into words, it would be because you make my world brighter just by being in it.",
-  "I love the way you understand me without me having to say a word, and how you make me feel safe and cherished just by being you. You’re my calm in the chaos, my joy in the ordinary, and my favorite part of every day.",
-  "I love you for who you are, for who you help me become, and for the beautiful future we’re building together.",
-  "You're my best friend and my soulmate, You’re my everything, and I’m so grateful to have you in my life."
-];
-let index = 0;
-let charIndex = 0;
-
-function typeWriter() {
-  if (charIndex < messages[index].length) {
-    loveMessage.textContent += messages[index].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeWriter, 50);
-  } else {
-    setTimeout(eraseText, 2000);
+  // Check favorite person
+  if (favoritePerson !== correctFavoritePerson) {
+    isValid = false;
   }
-}
 
-function eraseText() {
-  if (charIndex > 0) {
-    loveMessage.textContent = messages[index].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(eraseText, 10);
-  } else {
-    index = (index + 1) % messages.length;
-    setTimeout(typeWriter, 500);
+  // Check favorite sports (at least one match)
+  const enteredSports = sports.toLowerCase().split(/,|\s+/);
+  const hasCorrectSport = enteredSports.some(sport => correctSports.includes(sport));
+  if (!hasCorrectSport) {
+    isValid = false;
   }
-}
 
-typeWriter();
+  // Show error message if answers are incorrect
+  if (!isValid) {
+    errorMessage.classList.remove('hidden');
+    errorMessage.classList.add('visible');
+    return;
+  }
 
-// Surprise Button
-const surpriseButton = document.getElementById('surprise-button');
-const surpriseContent = document.getElementById('surprise-content');
+  // If answers are correct, proceed to the main app
+  errorMessage.classList.remove('visible');
+  errorMessage.classList.add('hidden');
 
-surpriseButton.addEventListener('click', () => {
-  surpriseContent.classList.remove('hidden');
-  surpriseButton.style.display = 'none';
-});
+  // Hide login page and show main app
+  loginSection.classList.add('hidden');
+  appSection.classList.remove('hidden');
+  appSection.classList.add('visible'); 
 
-// Auto-Play Next Song
-const audioElements = document.querySelectorAll('audio');
+  // Display her name on the home page
+  displayName.textContent = name;
 
-audioElements.forEach((audio, index) => {
-  audio.addEventListener('ended', () => {
-    if (index < audioElements.length - 1) {
-      audioElements[index + 1].play();
-    }
-  });
+  //  Save the details to localStorage
+  localStorage.setItem('name', name);
+  localStorage.setItem('likes', likes);
+  localStorage.setItem('sports', sports);
+  localStorage.setItem('favoritePerson', favoritePerson);
 });
