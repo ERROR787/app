@@ -1,4 +1,4 @@
- // Login Form Submission with Validation
+// Login Form Submission with Validation
 const loginForm = document.getElementById('login-form');
 const loginSection = document.getElementById('login');
 const appSection = document.getElementById('app');
