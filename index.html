@@ -8,7 +8,29 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <div id="app">
+   <!-- Login Page -->
+   <section id="login" class="screen">
+    <h1>Welcome to Our Love Story</h1>
+    <p>Please fill in some details about yourself:</p>
+    <form id="login-form">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+  
+      <label for="likes">What You Like:</label>
+      <input type="text" id="likes" name="likes" placeholder="e.g., chocolate, sunsets" required>
+  
+      <label for="sports">Your Favorite Sports:</label>
+      <input type="text" id="sports" name="sports" placeholder="e.g., tennis, swimming" required>
+  
+      <label for="favorite-person">Your Favorite Person:</label>
+      <input type="text" id="favorite-person" name="favorite-person" required>
+  
+      <button type="submit">Submit</button>
+    </form>
+    <p id="error-message" class="hidden">Hmm, are you sure about that? Try again! 😉</p>
+  </section>
+
+  <div id="app" class="hidden">
     <!-- Home Screen -->
     <section id="home" class="screen">
       <h1>Welcome to Our Love Story</h1>
@@ -51,38 +73,25 @@
       </div>
     </section>
 
-   <!-- Surprise Section -->
-<section id="surprise" class="screen hidden">
-  <h2>A Special Surprise</h2>
-  <p>Here's a playlist of songs that remind me of you:</p>
-  <div id="playlist">
-    <div class="song">
-      <p>Song 1: Our Song</p>
-      <audio controls>
-        <source src="song1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-    <div class="song">
-      <p>Song 2: Your Favorite Song</p>
-      <audio controls>
-        <source src="song2.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-    <div class="song">
-      <p>Song 3: A Romantic Melody</p>
-      <audio controls>
-        <source src="song3.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
+    <!-- Surprise -->
+    <section id="surprise" class="screen hidden">
+      <h2>A Special Surprise</h2>
+      <p>Click the button to reveal your surprise!</p>
+      <button id="surprise-button">Reveal Surprise</button>
+      <div id="surprise-content" class="hidden">
+        <p>You mean the world to me! Here's a song for you:</p>
+        <audio controls>
+          <source src="song.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="navigation">
+        <button class="back-button">Back</button>
+        <button class="next-button">home</button>
+      </div>
+    </section>
   </div>
-  <div class="navigation">
-    <button class="back-button">Back</button>
-    <button class="next-button">Next</button>
-  </div>
-</section>
+  
 
   <script src="script.js"></script>
   <script>
