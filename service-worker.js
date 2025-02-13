@@ -5,9 +5,9 @@ const ASSETS = [
   '/styles.css',
   '/script.js',
   '/met.jpg',
-  '/assets/pic/date1.jpg',
-  '/assets/pic/fare.jpg',
-  '/assets/pic/fare.jpg',
+  '/memory1.jpg',
+  '/memory2.jpg',
+  '/memory3.jpg',
   '/song.mp3'
 ];
 
