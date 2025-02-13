@@ -123,3 +123,18 @@ audio {
 width: 100%;
 max-width: 300px;
 }
+/* Stop All Button */
+#stop-all-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#stop-all-button:hover {
+  background: #ff4a3d;
+}
