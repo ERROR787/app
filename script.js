@@ -226,3 +226,6 @@ if (stopAllButton) {
   frame();
 }
 
+document.getElementById("confetti-button").addEventListener("click", showConfetti);
+
+
