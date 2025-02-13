@@ -1,10 +1,10 @@
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Pacifico', cursive;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  color: #333;
+  background: linear-gradient(135deg, #ff6f61, #ff9a9e);
+  color: #fff;
   line-height: 1.6;
 }
 
@@ -27,16 +27,54 @@ body {
   display: none;
 }
 
-/* Buttons */
-button {
+/* Navigation Buttons */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.back-button, .next-button {
   padding: 10px 20px;
-  font-size: 1.2rem;
-  background: #ff6f61;
+  font-size: 1rem;
+  background: #ff4a3d;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 10px;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover, .next-button:hover {
+  background: #ff6f61;
+}
+
+/* Home Page */
+#home {
+  background: url('background.jpg') no-repeat center center/cover;
+  color: white;
+}
+
+#home h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+#home button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background: #ff4a3d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#home button:hover {
+  background: #ff6f61;
 }
 
 /* Hearts Animation */
@@ -63,78 +101,104 @@ button {
   }
 }
 
-/* Gallery */
-.gallery {
+/* Will You Be My Valentine? */
+#valentine-question {
+  text-align: center;
+}
+
+#valentine-question .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+#yes-button, #no-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#yes-button {
+  background: #4CAF50;
+  color: white;
+}
+
+#no-button {
+  background: #f44336;
+  color: white;
+}
+
+#yes-button:hover, #no-button:hover {
+  transform: scale(1.1);
+}
+
+/* Confetti Animation */
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Memories Section */
+#memories .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
   margin-top: 20px;
 }
 
-.gallery img {
+#memories .gallery img {
   width: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Navigation Buttons */
-.navigation {
-display: flex;
-justify-content: space-between;
-width: 100%;
-max-width: 300px;
-margin: 20px auto;
+#memories p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-top: 20px;
+  text-align: center;
+  color: #333;
 }
 
-.back-button, .next-button {
-padding: 10px 20px;
-font-size: 1rem;
-background: #ff6f61;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-}
-
-.back-button:hover, .next-button:hover {
-background: #ff4a3d;
-}
-
-/* Playlist Styles */
-#playlist {
-margin-top: 20px;
-}
-
-.song {
-background: rgba(255, 255, 255, 0.8);
-padding: 10px;
-border-radius: 10px;
-margin-bottom: 10px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.song p {
-margin: 0 0 10px 0;
-font-size: 1.1rem;
-color: #333;
-}
-
-audio {
-width: 100%;
-max-width: 300px;
-}
 /* Stop All Button */
 #stop-all-button {
   padding: 10px 20px;
   font-size: 1rem;
-  background: #ff6f61;
+  background: #ff4a3d;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 20px;
+  transition: background 0.3s ease;
 }
 
 #stop-all-button:hover {
-  background: #ff4a3d;
+  background: #ff6f61;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  #memories .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  #memories p {
+    font-size: 1rem;
+  }
+
+  #stop-all-button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
 }
