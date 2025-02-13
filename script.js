@@ -209,11 +209,20 @@ if (stopAllButton) {
   console.error('Stop All button not found!');
 }
 
-  // Confetti Animation
-  function showConfetti() {
-    confetti({
-      particleCount: 150,
-      spread: 70,
-      origin: { y: 0.6 }
-    });
+ function showConfetti() {
+  const duration = 5 * 1000; // 5 seconds
+  const animationEnd = Date.now() + duration;
+  const defaults = { startVelocity: 30, spread: 360, ticks: 60, gravity: 0.8 };
+
+  function frame() {
+    const timeLeft = animationEnd - Date.now();
+    if (timeLeft <= 0) {
+      return;
+    }
+    confetti(Object.assign({}, defaults, { particleCount: 50 }));
+    requestAnimationFrame(frame);
   }
+  
+  frame();
+}
+
