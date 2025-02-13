@@ -106,21 +106,61 @@ function eraseText() {
 typeWriter();
 
 // Surprise Button
-const surpriseButton = document.getElementById('surprise-button');
-const surpriseContent = document.getElementById('surprise-content');
+const surpriseButton = document.getElementById('surprise');
 
 surpriseButton.addEventListener('click', () => {
   surpriseContent.classList.remove('hidden');
   surpriseButton.style.display = 'none';
 });
 
-// Auto-Play Next Song
-const audioElements = document.querySelectorAll('audio');
+document.addEventListener('DOMContentLoaded', () => {
+  // Get all audio elements
+  const audioElements = document.querySelectorAll('audio');
 
-audioElements.forEach((audio, index) => {
-  audio.addEventListener('ended', () => {
-    if (index < audioElements.length - 1) {
-      audioElements[index + 1].play();
-    }
+  // Track the currently playing audio
+  let currentlyPlaying = null;
+
+  // Add event listeners to all audio elements
+  audioElements.forEach((audio) => {
+    audio.addEventListener('play', () => {
+      console.log('Song started playing:', audio.querySelector('source').src);
+
+      // Pause and reset the currently playing song (if any)
+      if (currentlyPlaying && currentlyPlaying !== audio) {
+        console.log('Pausing and resetting other song:', currentlyPlaying.querySelector('source').src);
+        currentlyPlaying.pause();
+        currentlyPlaying.currentTime = 0; // Reset to the beginning
+      }
+
+      // Update the currently playing audio
+      currentlyPlaying = audio;
+    });
+
+    audio.addEventListener('pause', () => {
+      console.log('Song paused:', audio.querySelector('source').src);
+
+      // If the paused audio was the currently playing one, reset the tracker
+      if (currentlyPlaying === audio) {
+        currentlyPlaying = null;
+      }
+    });
   });
+
+  // Stop All Button
+  const stopAllButton = document.getElementById('stop-all-button');
+
+  if (stopAllButton) {
+    stopAllButton.addEventListener('click', () => {
+      console.log('Stopping all songs');
+      audioElements.forEach((audio) => {
+        audio.pause();
+        audio.currentTime = 0; // Reset the song to the beginning
+      });
+
+      // Reset the currently playing tracker
+      currentlyPlaying = null;
+    });
+  } else {
+    console.error('Stop All button not found!');
+  }
 });
