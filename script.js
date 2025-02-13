@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Will You Be My Valentine?
+ // Will You Be My Valentine?
   const yesButton = document.getElementById('yes-button');
   const noButton = document.getElementById('no-button');
   let yesButtonSize = 1;
@@ -190,8 +189,6 @@ nextButtons.forEach(button => {
         currentlyPlaying = null;
       }
     });
-  });
-
   // Stop All Button
 const stopAllButton = document.getElementById('stop-all-button');
 
