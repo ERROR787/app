@@ -7,7 +7,7 @@ const ASSETS = [
   '/met.jpg',
   '/assets/pic/date1.jpg',
   '/assets/pic/fare.jpg',
-  '/memory3.jpg',
+  '/assets/pic/fare.jpg',
   '/song.mp3'
 ];
 
