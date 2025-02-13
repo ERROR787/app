@@ -6,7 +6,7 @@ const ASSETS = [
   '/script.js',
   '/met.jpg',
   '/assets/pic/date1.jpg',
-  '/memory2.jpg',
+  '/assets/pic/fare.jpg',
   '/memory3.jpg',
   '/song.mp3'
 ];
