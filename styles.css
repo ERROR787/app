@@ -51,12 +51,6 @@ body {
   background: #ff6f61;
 }
 
-/* Home Page */
-#home {
-  background: url('background.jpg') no-repeat center center/cover;
-  color: white;
-}
-
 #home h1 {
   font-size: 3rem;
   margin-bottom: 20px;
