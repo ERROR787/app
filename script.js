@@ -210,7 +210,7 @@ if (stopAllButton) {
 }
 
  function showConfetti() {
-  const duration = 5 * 1000; // 5 seconds
+  const duration = 1 * 400; // 5 seconds
   const animationEnd = Date.now() + duration;
   const defaults = { startVelocity: 30, spread: 360, ticks: 60, gravity: 0.8 };
 
